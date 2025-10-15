@@ -36,14 +36,14 @@ int main(void)
     {
         graph[i][i] = 0;
     }
-    
+
+    // 플로이드 워셜 수행
     for (int i = 1; i <= N; i++)
     {
         for (int a = 1; a <= N; a++)
         {
             for (int b = 1; b <= N; b++)
             {
-                // 갱신
                 if (graph[a][i] + graph[i][b] < graph[a][b])
                 {
                     graph[a][b] = graph[a][i] + graph[i][b];
