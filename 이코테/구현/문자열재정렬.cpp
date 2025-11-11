@@ -1,40 +1,28 @@
 #include <bits/stdc++.h>
-#include <algorithm>
 using namespace std;
 
-int main()
+string S;
+
+int main(void)
 {
-    string input;
-    cin >> input;
+    cin >> S;
     
-    string outputString;
-    int outputInt = 0;
+    vector<char> vec;
+    int sum = 0;
     
-    for(int i = 0; i < input.length(); i++)
+    for (int i = 0; i < S.size(); i++)
     {
-        if (input[i] -'9' > 0)
-        {
-            // string
-            outputString += input[i];
-        }
-        else
-        {
-            // int
-            outputInt += input[i] -'0';
-        }
+        // 문자 숫자 구분
+        if (isalpha(S[i])) vec.push_back(S[i]);
+        else if (isdigit(S[i])) sum += S[i] - '0';
     }
     
-    sort(outputString.begin(), outputString.end());
+    sort(vec.begin(), vec.end());
     
-    if (outputInt == 0)
+    for (int i = 0; i < vec.size(); i++)
     {
-        cout << outputString;
-    }
-    else
-    {
-        cout << outputString <<  outputInt;
+        cout << vec[i];
     }
     
-    
-    return 0;
+    if (sum > 0) cout << sum;
 }
