@@ -3,28 +3,28 @@ using namespace std;
 
 string S;
 
-int main() {
-    
+int count0;
+int count1;
+
+int main(void) {
     cin >> S;
     
-    int count0 = 0;
-    int count1 = 0;
+    char currentC = ' ';
     
-    char checkingNum = S[0];
-    
-    if (S[0] == '0') count0++;
-    else count1++;  
-    
-    for (int i = 1; i < S.size(); i++)
-    {
-        if (checkingNum != S[i])
-        {
-            checkingNum = S[i];
-            
-            if (S[i] == '0') count0++;
-            else count1++;  
-        }
-    }
-    
-    cout << min(count0, count1);
+	for (int i = 0; i < S.size(); i++)
+	{
+	    if (S[i] == '0' && currentC != '0')
+	    {
+	        count0++;
+	        currentC = '0';
+	    }
+	    else if (S[i] == '1' && currentC != '1')
+	    {
+	        count1++;
+	        currentC = '1';
+	    }
+	}
+	
+    if (count0 <= count1) cout << count0;
+    else cout <<count1;
 }
