@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int N, K;
+int arr[10];
+
+int main() 
+{
+    cin >> N >> K;
+    
+    for (int i= 0; i < N; i++)
+    {
+        int x;
+        cin >> x;
+        arr[i] = x;
+    }
+    
+    int count = 0;
+    int divisionIdx = N - 1;
+    
+    while (K >= 1)
+    {
+        if (K / arr[divisionIdx] < 1) 
+        {
+            divisionIdx -= 1;
+            continue;
+        }
+        
+        count += K / arr[divisionIdx];
+        K %= arr[divisionIdx];
+    }
+    
+    cout << count;
+}
