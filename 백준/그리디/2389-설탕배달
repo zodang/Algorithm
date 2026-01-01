@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int N;
+
+int main() 
+{
+    cin >> N;
+    
+    int count = 0;
+    int five_count = N / 5;
+    int three_count = 0;
+    
+    for (int i = five_count; i >= 0; i--)
+    {
+        int leftN = N - (5 * i);
+
+        if (leftN % 3 == 0)
+        {
+            count = i + (leftN / 3);
+            break;
+        }
+    }
+    
+    if (count == 0) cout << -1;
+    else cout << count;
+}
