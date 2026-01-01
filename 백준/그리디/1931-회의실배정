@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Meeting
+{
+  int start;
+  int end;
+};
+
+bool compare(Meeting a, Meeting b)
+{
+    if (a.end == b.end) return a.start < b.start;
+    else return a.end < b.end;
+}
+
+int N;
+vector<Meeting> meeting_arr;
+
+int main() 
+{
+    cin >> N;
+    
+    for (int i = 0; i < N; i++)
+    {
+        int start, end;
+        cin >> start >> end;
+        meeting_arr.push_back({start, end});
+    }
+    
+    sort(meeting_arr.begin(), meeting_arr.end(), compare);
+    
+    int count = 0;
+    int prev_time = 0;
+    
+    for (int i = 0; i < N; i++)
+    {
+        if (meeting_arr[i].start >= prev_time) 
+        {
+            count++;
+            prev_time = meeting_arr[i].end;
+        }
+    }
+    
+    cout << count;
+}
