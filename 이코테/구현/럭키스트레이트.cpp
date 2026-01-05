@@ -3,26 +3,25 @@ using namespace std;
 
 int N;
 
-int main(void)
-{
-    cin >> N;
-    
-    // int to string
-    string NString = to_string(N);
-    
-    int leftSum = 0;
-    int rightSum = 0;
-    
-    int midIndex = NString.size() * 0.5f;
-    
-    for (int i = 0; i < NString.size(); i++)
-    {
-        int currentValue = NString[i] - '0'; 
-        
-        if (i < midIndex) leftSum += currentValue;
-        else rightSum += currentValue;
-    }
-    
-    if (leftSum == rightSum) cout << "LUCKY";
-    else cout << "READY";
+int main() {
+	
+	cin >> N;
+	string strN = to_string(N);
+	
+	int left = 0;
+	int right = 0;
+	
+	for (int i = 0; i < strN.size(); i++)
+	{
+	    // 1. 각 자리 숫자 변환
+	    int currentValue = strN[i] - '0';
+	    
+	    // 2. 왼쪽과 오른쪽의 각각 합 구하기
+	    if (i < strN.size() / 2) left += currentValue;
+	    else right += currentValue;
+	}
+	
+	// 3. 비교 후 출력력
+	if (left == right) cout << "LUCKY";
+	else cout << "READY";
 }
