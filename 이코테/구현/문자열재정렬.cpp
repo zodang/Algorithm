@@ -3,26 +3,29 @@ using namespace std;
 
 string S;
 
-int main(void)
-{
+int main() {
     cin >> S;
     
-    vector<char> vec;
-    int sum = 0;
+    vector<char> charArr;
+    int intSum = 0;
     
     for (int i = 0; i < S.size(); i++)
     {
-        // 문자 숫자 구분
-        if (isalpha(S[i])) vec.push_back(S[i]);
-        else if (isdigit(S[i])) sum += S[i] - '0';
+        int currentS = S[i] - '0';
+        
+        // 1. 문자숫자 구분 (if (currentS > 9))
+        if (isalpha(S[i])) charArr.push_back(S[i]);
+        else intSum += currentS;
     }
     
-    sort(vec.begin(), vec.end());
+    // 2. 문자열 정렬 후 출력
+    sort(charArr.begin(), charArr.end());
     
-    for (int i = 0; i < vec.size(); i++)
+    for (int i = 0; i < charArr.size(); i++)
     {
-        cout << vec[i];
+        cout << charArr[i];
     }
     
-    if (sum > 0) cout << sum;
+    // 3. 숫자 합 출력
+    if (intSum > 0) cout << intSum;
 }
