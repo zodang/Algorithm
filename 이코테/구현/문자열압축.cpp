@@ -3,50 +3,38 @@ using namespace std;
 
 int solution(string s) {
     int answer = 1000;
-
-    for (int i = 1; i <= s.size(); i++)
+    
+    for (int n = 1; n <= s.size(); n++)
     {
-        vector<string> vec;
-        int count = 0;
+        string resultS = "";
         
-        while (count < s.size())
+        // 1. 첫 문자열 자르기
+        int count = 1;
+        string prevS = s.substr(0, n);
+        
+        for (int j = n; j < s.size(); j += n)
         {
-            // i개씩 문자열 자르기
-            string x = s.substr(count, i);
-            vec.push_back(x);
-            count += i;
-        }
-        
-        // 같은 문자 비교 및 카운트를 위한 세팅
-        int sameCount = 0;
-        string currentText = vec[0];
-        string resultText = "";
-        
-        for (int k = 0; k < vec.size(); k++)
-        {
-            if (currentText == vec[k]) 
+            // 2. 두번째 문자열 잘라서 비교
+            string currentS = s.substr(j, n);
+            
+            if (prevS == currentS) count++;
+            else 
             {
-                // 같은 경우 숫자 카운트
-                sameCount++;
-            }
-            else
-            {
-                // 현재까지의 sameCount와 currentText까지 작성
-                if (sameCount == 1) resultText += currentText;
-                else resultText += (to_string(sameCount) + currentText);
+                // 3. 다른 문자열 등장 시, 이전까지의 개수와 문자열 추가
+                if (count == 1) resultS += prevS;
+                else resultS += to_string(count) + prevS; 
                 
-                // currentText 갱신
-                currentText = vec[k];
-                sameCount = 1;
+                count = 1;
+                prevS = currentS;
             }
         }
         
-        // 마지막 sameCount와 currentText 작성
-        if (sameCount == 1) resultText += currentText;
-        else resultText += (to_string(sameCount) + currentText);
+        // 4. n개로 자른 뒤 남은 문자열 추가
+        if (count == 1) resultS += prevS;
+        else resultS += to_string(count) + prevS;
         
-        // 최소값 갱신
-        if (answer > resultText.size()) answer = resultText.size();
+        // 5. 최소 문자열 개수 갱신
+        if (answer > resultS.size()) answer = resultS.size();
     }
     
     return answer;
