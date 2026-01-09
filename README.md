@@ -32,4 +32,6 @@
 | | p.322 문자열재정렬 | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9E%AC%EC%A0%95%EB%A0%AC.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60057" target="_blank" rel="noreferrer">p.323 문자열 압축</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%EC%95%95%EC%B6%95.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059" target="_blank" rel="noreferrer">p.325 자물쇠와열쇠</a> | [C++](https://github.com/zodang/Algorithm/tree/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84) |
+| | <a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noreferrer">p.327 뱀</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%B1%80.cpp) |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061" target="_blank" rel="noreferrer">p.329 기둥과보설치</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EA%B8%B0%EB%91%A5%EA%B3%BC%EB%B3%B4%EC%84%A4%EC%B9%98.cpp) |
 
