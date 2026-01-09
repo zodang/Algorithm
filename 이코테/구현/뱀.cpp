@@ -3,88 +3,118 @@ using namespace std;
 
 int N, K, L;
 
-// 북, 서, 남, 동
-int dx[4] = {0, 1, 0, -1}; 
-int dy[4] = {1, 0, -1, 0};
+int dy[4] = {0, 1, 0, -1};
+int dx[4] = {1, 0, -1, 0};
+
+int return_direction(char d, int currentD)
+{
+    if (d == 'L') currentD -= 1;
+    else if (d == 'D') currentD += 1;
+    
+    if (currentD >= 4) return 0;
+    if (currentD < 0) return 3;
+    return currentD;
+}
+
+void debug_board(vector<vector<int>>& board)
+{
+    for (int i = 0; i < board.size(); i++)
+    {
+        for(int j = 0; j < board.size(); j++)
+        {
+            cout << board[i][j] << ' ';
+        }
+        cout << '\n';
+    }
+    cout << '\n';
+}
 
 int main() {
-    
-    // 보드 초기화
-    cin >> N;
-    vector<vector<int>> board(N + 1, vector<int>(N + 1, 0));
-    
-    // 뱀 위치 초기화
-    int x = 1;
-    int y = 1;
-    int d = 0;
-    
-    // 뱀 위치 관리 큐
-    queue<pair<int, int>> q;
-    
-    board[x][y] = 1;
-    q.push(make_pair(x, y));
-    
-    // 사과 위치 초기화
-    cin >> K;
-    
-    for (int i = 1; i <= K; i++)
+	cin >> N;
+	cin >> K;
+	
+	// 1. 보드 초기화 (0: 빈 칸, 1: 뱀칸, 2: 사과칸)
+    vector<vector<int>> board(N+1, vector<int>(N+1, 0));
+	
+	// 2. 사과 위치 초기화
+    for (int i = 0; i < K; i++)
     {
-        int appleX = 0; 
-        int appleY = 0;
-        cin >> appleX >> appleY;
-        board[appleX][appleY] = 2;
+        int y, x;
+        cin >> y >> x;
+        board[y][x] = 2;
     }
     
-    // 뱀 방향 전환 정보 초기화
+    // 3. 회전 정보 초기화
     cin >> L;
-    vector<pair<int, char>> vec;
+    vector<pair<int, char>> dirInfo;
     
     for (int i = 0; i < L; i++)
     {
-        int sec = 0;
+        int second;
         char dir;
-        cin >> sec >> dir;
-        vec.push_back(make_pair(sec, dir));
+        cin >> second >> dir;
+        
+        dirInfo.push_back({second, dir});
     }
     
-    // 시뮬레이션 구현
-    int totalSecond = 0;
-    int directionIndex = 0;
+    // 4. 시뮬레이션 정보 초기화
+    int total_count = 0;
+    int dirIdx = 0;
     
+    int cx = 1;
+    int cy = 1;
+    int cd = 0;
+    
+    queue<pair<int, int>> snakePos;
+    
+    board[cx][cy] = 1;
+    snakePos.push({cx, cy});
+
     while (true)
     {
-        totalSecond++;
+        total_count++;
         
-        // 이동 가능 여부 확인
-        int nx = x + dx[d];
-        int ny = y + dy[d];
+        // 5. 예상 머리 위치
+        int ny = cy + dy[cd];
+        int nx = cx + dx[cd];
         
-        // 자기 자신과 닿거나 벽에 부딪힌 경우
-        if ( nx < 1 || nx > N || ny < 1 || ny > N || board[nx][ny] == 1) break;
-        
-        // 사과를 만나지 못한 경우 꼬리 제거
-        if (board[nx][ny] != 2)
+        // 6. 충돌 체크 및 게임 종료
+        if (nx <= 0 || nx > N || ny <= 0 || ny > N || board[ny][nx] == 1) 
         {
-            pair<int, int> tailPos = q.front();
-            board[tailPos.first][tailPos.second] = 0;
-            q.pop();
+            cout << total_count;
+            return total_count;
         }
         
-        // 머리 이동
-        x = nx;
-        y = ny;
-        board[x][y] = 1;
-        q.push(make_pair(x, y));
-        
-        // 방향 전환
-        if (directionIndex < vec.size() && totalSecond == vec[directionIndex].first)
+        // 7. 사과 체크 및 꼬리 이동
+        if (board[ny][nx] == 2)
         {
-            if (vec[directionIndex].second == 'D') d = (d + 1) % 4;
-            else if (vec[directionIndex].second == 'L') d = (d + 3) % 4;
+            snakePos.push({ny, nx});
+            board[ny][nx] = 1;
+        }
+        else
+        {
+            snakePos.push({ny, nx});
+            board[ny][nx] = 1;
             
-            directionIndex++;
+            int ty = snakePos.front().first;
+            int tx = snakePos.front().second;
+            board[ty][tx] = 0;
+            
+            snakePos.pop();
         }
+        
+        // 8. 방향 전환
+        if (dirIdx < dirInfo.size() && total_count == dirInfo[dirIdx].first)
+        {
+            cd = return_direction(dirInfo[dirIdx].second, cd);
+            dirIdx++;
+        }
+        
+        // 9. 머리 이동
+        cy = ny;
+        cx = nx;
+        
     }
     
-    cout << totalSecond;
+    cout << total_count;
 }
