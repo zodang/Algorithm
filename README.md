@@ -34,4 +34,6 @@
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059" target="_blank" rel="noreferrer">p.325 자물쇠와열쇠</a> | [C++](https://github.com/zodang/Algorithm/tree/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84) |
 | | <a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noreferrer">p.327 뱀</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%B1%80.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061" target="_blank" rel="noreferrer">p.329 기둥과보설치</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EA%B8%B0%EB%91%A5%EA%B3%BC%EB%B3%B4%EC%84%A4%EC%B9%98.cpp) |
+| | <a href="https://www.acmicpc.net/problem/15686" target="_blank" rel="noreferrer">p.332 치킨배달 </a> | |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60062" target="_blank" rel="noreferrer">p.335 외벽점검 </a> | |
 
