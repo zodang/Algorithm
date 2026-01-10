@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int M, N;
+char board[51][51];
+
+int count_repaint(int x, int y, char startC)
+{
+    int wrong_count = 0;
+    char answerC = (startC == 'W') ? 'W' : 'B';
+    
+    for (int i = x; i < x+8; i++)
+    {
+        for (int j = y; j < y+8; j++)
+        {
+            if (board[i][j] != answerC) wrong_count++;
+            
+            if (j == y+7) answerC = (answerC == 'W') ? 'W' : 'B';
+            else answerC = (answerC == 'W') ? 'B' : 'W';
+        }
+    }
+    
+    return wrong_count;
+}
+
+
+int main() {
+    cin >> N >> M;
+    
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            char c;
+            cin >> c;
+            board[i][j] = c;
+        }
+    }
+    
+    int min_count = 64;
+    
+    // i, j: 시작점
+    for (int i = 0; i <= N-8; i++)
+    {
+        for (int j = 0; j <= M-8; j++)
+        {
+            min_count = min(count_repaint(i, j, 'W'), min_count);
+            min_count = min(count_repaint(i, j, 'B'), min_count);
+        }
+    }
+    
+    cout << min_count;
+}
