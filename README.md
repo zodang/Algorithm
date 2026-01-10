@@ -5,15 +5,15 @@
 
 | 출처 | 문제 | 소스코드 |
 | --- | --- | --- |
-| 이코테 | p.311 모험가길드 | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B7%B8%EB%A6%AC%EB%94%94/%EB%AA%A8%ED%97%98%EA%B0%80%EA%B8%B8%EB%93%9C.cpp) |
-| | p.312 곱하기혹은더하기 | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B7%B8%EB%A6%AC%EB%94%94/%EA%B3%B1%ED%95%98%EA%B8%B0%ED%98%B9%EC%9D%80%EB%8D%94%ED%95%98%EA%B8%B0.cpp) |
-| | <a href="https://www.acmicpc.net/problem/1439" target="_blank" rel="noreferrer">p.313 문자열뒤집기</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B7%B8%EB%A6%AC%EB%94%94/%EB%AC%B8%EC%9E%90%EC%97%B4%EB%92%A4%EC%A7%91%EA%B8%B0.cpp) |
-| | p.314 만들수없는금액 | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B7%B8%EB%A6%AC%EB%94%94/%EB%A7%8C%EB%93%A4%EC%88%98%EC%97%86%EB%8A%94%EA%B8%88%EC%95%A1.cpp) |
-| | p.315 볼링공고르기 | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B7%B8%EB%A6%AC%EB%94%94/%EB%B3%BC%EB%A7%81%EA%B3%B5%EA%B3%A0%EB%A5%B4%EA%B8%B0.cpp) |
-| 백준 | <a href="https://www.acmicpc.net/problem/1931" target="_blank" rel="noreferrer">1931 - 회의실배정</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/%EA%B7%B8%EB%A6%AC%EB%94%94/1931-%ED%9A%8C%EC%9D%98%EC%8B%A4%EB%B0%B0%EC%A0%95) |
-| | <a href="https://www.acmicpc.net/problem/2839" target="_blank" rel="noreferrer">2839 - 설탕배달</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/%EA%B7%B8%EB%A6%AC%EB%94%94/2389-%EC%84%A4%ED%83%95%EB%B0%B0%EB%8B%AC) |
-| | <a href="https://www.acmicpc.net/problem/11047" target="_blank" rel="noreferrer">11047 - 동전0</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/%EA%B7%B8%EB%A6%AC%EB%94%94/11047-%EB%8F%99%EC%A0%840) |
-| | <a href="https://www.acmicpc.net/problem/11399" target="_blank" rel="noreferrer">11399 - ATM</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/%EA%B7%B8%EB%A6%AC%EB%94%94/11399-ATM) |
+| 이코테 | p.311 모험가길드 | [C++](이코테/그리디/모험가길드.cpp) |
+| | p.312 곱하기혹은더하기 | [C++](이코테/그리디/곱하기혹은더하기.cpp) |
+| | <a href="https://www.acmicpc.net/problem/1439" target="_blank" rel="noreferrer">p.313 문자열뒤집기</a> | [C++](이코테/그리디/문자열뒤집기.cpp) |
+| | p.314 만들수없는금액 | [C++](이코테/그리디/만들수없는금액.cpp) |
+| | p.315 볼링공고르기 | [C++](이코테/그리디/볼링공고르기.cpp) |
+| 백준 | <a href="https://www.acmicpc.net/problem/1931" target="_blank" rel="noreferrer">1931 - 회의실배정</a> | [C++](백준/그리디/1931-회의실배정) |
+| | <a href="https://www.acmicpc.net/problem/2839" target="_blank" rel="noreferrer">2839 - 설탕배달</a> | [C++](백준/그리디/2389-설탕배달) |
+| | <a href="https://www.acmicpc.net/problem/11047" target="_blank" rel="noreferrer">11047 - 동전0</a> | [C++](백준/그리디/11047-동전0) |
+| | <a href="https://www.acmicpc.net/problem/11399" target="_blank" rel="noreferrer">11399 - ATM</a> | [C++](백준/그리디/11399-ATM) |
 
 <br/>
 
@@ -28,12 +28,12 @@
 
 | 출처 | 문제 | 소스코드 |
 | --- | --- | --- |
-| 이코테 | <a href="https://www.acmicpc.net/problem/18406" target="_blank" rel="noreferrer">p.321 럭키스트레이트</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%9F%AD%ED%82%A4%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8.cpp) |
-| | p.322 문자열재정렬 | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9E%AC%EC%A0%95%EB%A0%AC.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60057" target="_blank" rel="noreferrer">p.323 문자열 압축</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%EC%95%95%EC%B6%95.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059" target="_blank" rel="noreferrer">p.325 자물쇠와열쇠</a> | [C++](https://github.com/zodang/Algorithm/tree/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84) |
-| | <a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noreferrer">p.327 뱀</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EB%B1%80.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061" target="_blank" rel="noreferrer">p.329 기둥과보설치</a> | [C++](https://github.com/zodang/Algorithm/blob/main/%EC%9D%B4%EC%BD%94%ED%85%8C/%EA%B5%AC%ED%98%84/%EA%B8%B0%EB%91%A5%EA%B3%BC%EB%B3%B4%EC%84%A4%EC%B9%98.cpp) |
+| 이코테 | <a href="https://www.acmicpc.net/problem/18406" target="_blank" rel="noreferrer">p.321 럭키스트레이트</a> | [C++](이코테/구현/럭키스트레이트.cpp) |
+| | p.322 문자열재정렬 | [C++]() |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60057" target="_blank" rel="noreferrer">p.323 문자열 압축</a> | [C++](이코테/구현/문자열압축.cpp) |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059" target="_blank" rel="noreferrer">p.325 자물쇠와열쇠</a> | [C++](이코테/구현/자물쇠와열쇠.cpp) |
+| | <a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noreferrer">p.327 뱀</a> | [C++](이코테/구현/뱀.cpp) |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061" target="_blank" rel="noreferrer">p.329 기둥과보설치</a> | [C++](이코테/구현/기둥과보설치.cpp) |
 | | <a href="https://www.acmicpc.net/problem/15686" target="_blank" rel="noreferrer">p.332 치킨배달 </a> | [C++](이코테/구현/치킨배달.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60062" target="_blank" rel="noreferrer">p.335 외벽점검 </a> | |
 | 백준 | <a href="https://www.acmicpc.net/problem/1018" target="_blank" rel="noreferrer">1018 - 체스판다시칠하기</a> | [C++](백준/구현/1018-체스판다시칠하기) |
