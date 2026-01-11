@@ -38,3 +38,16 @@
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60062" target="_blank" rel="noreferrer">p.335 외벽점검 </a> | |
 | 백준 | <a href="https://www.acmicpc.net/problem/1018" target="_blank" rel="noreferrer">1018 - 체스판다시칠하기</a> | [C++](백준/구현/1018-체스판다시칠하기) |
 
+<br/>
+
+## DFS/BFS
+DFS(깊이 우선 탐색)와 BFS(너비 우선 탐색)는 그래프나 트리 구조에서 **모든 노드를 탐색하는 알고리즘**이다. 
+
+DFS는 **한 경로를 끝까지 파고드는 방식**으로, 주로 스택 자료구조 혹은 재귀 함수를 사용한다.
+
+BFS는 **시작점에서 가까운 노드부터 단계별로 넓게 탐색하는 방식**으로, 주로 큐 자료구조를 사용한다.
+
+<br/>
+
+| 출처 | 문제 | 소스코드 |
+| --- | --- | --- |
