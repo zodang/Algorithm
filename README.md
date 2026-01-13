@@ -29,13 +29,12 @@
 | 출처 | 문제 | 소스코드 |
 | --- | --- | --- |
 | 이코테 | <a href="https://www.acmicpc.net/problem/18406" target="_blank" rel="noreferrer">p.321 럭키스트레이트</a> | [C++](이코테/구현/럭키스트레이트.cpp) |
-| | p.322 문자열재정렬 | [C++]() |
+| | p.322 문자열재정렬 | [C++](이코테/구현/문자열재정렬.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60057" target="_blank" rel="noreferrer">p.323 문자열 압축</a> | [C++](이코테/구현/문자열압축.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059" target="_blank" rel="noreferrer">p.325 자물쇠와열쇠</a> | [C++](이코테/구현/자물쇠와열쇠.cpp) |
 | | <a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noreferrer">p.327 뱀</a> | [C++](이코테/구현/뱀.cpp) |
 | | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061" target="_blank" rel="noreferrer">p.329 기둥과보설치</a> | [C++](이코테/구현/기둥과보설치.cpp) |
 | | <a href="https://www.acmicpc.net/problem/15686" target="_blank" rel="noreferrer">p.332 치킨배달 </a> | [C++](이코테/구현/치킨배달.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60062" target="_blank" rel="noreferrer">p.335 외벽점검 </a> | |
 | 백준 | <a href="https://www.acmicpc.net/problem/1018" target="_blank" rel="noreferrer">1018 - 체스판다시칠하기</a> | [C++](백준/구현/1018-체스판다시칠하기) |
 
 <br/>
@@ -51,3 +50,5 @@ BFS는 **시작점에서 가까운 노드부터 단계별로 넓게 탐색하는
 
 | 출처 | 문제 | 소스코드 |
 | --- | --- | --- |
+| 이코테 | <a href="https://www.acmicpc.net/problem/18352" target="_blank" rel="noreferrer">p.339 특정거리의도시찾기</a> | [C++](이코테/DFS&BFS/특정거리의도시찾기.cpp) |
+|  | <a href="https://www.acmicpc.net/problem/14502" target="_blank" rel="noreferrer">p.341 연구</a> | [C++](이코테/DFS&BFS/연구소.cpp) |
