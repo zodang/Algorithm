@@ -7,13 +7,13 @@
 | --- | --- | --- |
 | 이코테 | p.311 모험가길드 | [C++](이코테/그리디/모험가길드.cpp) |
 | | p.312 곱하기혹은더하기 | [C++](이코테/그리디/곱하기혹은더하기.cpp) |
-| | <a href="https://www.acmicpc.net/problem/1439" target="_blank" rel="noreferrer">p.313 문자열뒤집기</a> | [C++](이코테/그리디/문자열뒤집기.cpp) |
+| | <a href="https://www.acmicpc.net/problem/1439">p.313 문자열뒤집기</a> | [C++](이코테/그리디/문자열뒤집기.cpp) |
 | | p.314 만들수없는금액 | [C++](이코테/그리디/만들수없는금액.cpp) |
 | | p.315 볼링공고르기 | [C++](이코테/그리디/볼링공고르기.cpp) |
-| 백준 | <a href="https://www.acmicpc.net/problem/1931" target="_blank" rel="noreferrer">1931 - 회의실배정</a> | [C++](백준/그리디/1931-회의실배정) |
-| | <a href="https://www.acmicpc.net/problem/2839" target="_blank" rel="noreferrer">2839 - 설탕배달</a> | [C++](백준/그리디/2389-설탕배달) |
-| | <a href="https://www.acmicpc.net/problem/11047" target="_blank" rel="noreferrer">11047 - 동전0</a> | [C++](백준/그리디/11047-동전0) |
-| | <a href="https://www.acmicpc.net/problem/11399" target="_blank" rel="noreferrer">11399 - ATM</a> | [C++](백준/그리디/11399-ATM) |
+| 백준 | <a href="https://www.acmicpc.net/problem/1931">1931 - 회의실배정</a> | [C++](백준/그리디/1931-회의실배정) |
+| | <a href="https://www.acmicpc.net/problem/2839">2839 - 설탕배달</a> | [C++](백준/그리디/2389-설탕배달) |
+| | <a href="https://www.acmicpc.net/problem/11047">11047 - 동전0</a> | [C++](백준/그리디/11047-동전0) |
+| | <a href="https://www.acmicpc.net/problem/11399">11399 - ATM</a> | [C++](백준/그리디/11399-ATM) |
 
 <br/>
 
@@ -28,27 +28,14 @@
 
 | 출처 | 문제 | 소스코드 |
 | --- | --- | --- |
-| 이코테 | <a href="https://www.acmicpc.net/problem/18406" target="_blank" rel="noreferrer">p.321 럭키스트레이트</a> | [C++](이코테/구현/럭키스트레이트.cpp) |
+| 이코테 | <a href="https://www.acmicpc.net/problem/18406">p.321 럭키스트레이트</a> | [C++](이코테/구현/럭키스트레이트.cpp) |
 | | p.322 문자열재정렬 | [C++](이코테/구현/문자열재정렬.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60057" target="_blank" rel="noreferrer">p.323 문자열 압축</a> | [C++](이코테/구현/문자열압축.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059" target="_blank" rel="noreferrer">p.325 자물쇠와열쇠</a> | [C++](이코테/구현/자물쇠와열쇠.cpp) |
-| | <a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noreferrer">p.327 뱀</a> | [C++](이코테/구현/뱀.cpp) |
-| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061" target="_blank" rel="noreferrer">p.329 기둥과보설치</a> | [C++](이코테/구현/기둥과보설치.cpp) |
-| | <a href="https://www.acmicpc.net/problem/15686" target="_blank" rel="noreferrer">p.332 치킨배달 </a> | [C++](이코테/구현/치킨배달.cpp) |
-| 백준 | <a href="https://www.acmicpc.net/problem/1018" target="_blank" rel="noreferrer">1018 - 체스판다시칠하기</a> | [C++](백준/구현/1018-체스판다시칠하기) |
-
-
-| 출처  | 문제                                                              | 소스코드                        |
-| --- | --------------------------------------------------------------- | --------------------------- |
-| 이코테 | p.311 모험가길드                                                     | [C++](이코테/그리디/모험가길드.cpp)    |
-|     | p.312 곱하기혹은더하기                                                  | [C++](이코테/그리디/곱하기혹은더하기.cpp) |
-|     | [p.313 문자열뒤집기 (BOJ 1439)](https://www.acmicpc.net/problem/1439) | [C++](이코테/그리디/문자열뒤집기.cpp)   |
-|     | p.314 만들수없는금액                                                   | [C++](이코테/그리디/만들수없는금액.cpp)  |
-|     | p.315 볼링공고르기                                                    | [C++](이코테/그리디/볼링공고르기.cpp)   |
-| 백준  | [1931 - 회의실배정](https://www.acmicpc.net/problem/1931)            | [C++](백준/그리디/1931-회의실배정)    |
-|     | [2839 - 설탕배달](https://www.acmicpc.net/problem/2839)             | [C++](백준/그리디/2839-설탕배달)     |
-|     | [11047 - 동전0](https://www.acmicpc.net/problem/11047)            | [C++](백준/그리디/11047-동전0)     |
-|     | [11399 - ATM](https://www.acmicpc.net/problem/11399)            | [C++](백준/그리디/11399-ATM)     |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60057">p.323 문자열 압축</a> | [C++](이코테/구현/문자열압축.cpp) |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60059">p.325 자물쇠와열쇠</a> | [C++](이코테/구현/자물쇠와열쇠.cpp) |
+| | <a href="https://www.acmicpc.net/problem/3190">p.327 뱀</a> | [C++](이코테/구현/뱀.cpp) |
+| | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60061">p.329 기둥과보설치</a> | [C++](이코테/구현/기둥과보설치.cpp) |
+| | <a href="https://www.acmicpc.net/problem/15686">p.332 치킨배달 </a> | [C++](이코테/구현/치킨배달.cpp) |
+| 백준 | <a href="https://www.acmicpc.net/problem/1018">1018 - 체스판다시칠하기</a> | [C++](백준/구현/1018-체스판다시칠하기) |
 
 <br/>
 
@@ -63,5 +50,5 @@ BFS는 **시작점에서 가까운 노드부터 단계별로 넓게 탐색하는
 
 | 출처 | 문제 | 소스코드 |
 | --- | --- | --- |
-| 이코테 | <a href="https://www.acmicpc.net/problem/18352" target="_blank" rel="noreferrer">p.339 특정거리의도시찾기</a> | [C++](이코테/DFS&BFS/특정거리의도시찾기.cpp) |
-|  | <a href="https://www.acmicpc.net/problem/14502" target="_blank" rel="noreferrer">p.341 연구</a> | [C++](이코테/DFS&BFS/연구소.cpp) |
+| 이코테 | <a href="https://www.acmicpc.net/problem/18352">p.339 특정거리의도시찾기</a> | [C++](이코테/DFS&BFS/특정거리의도시찾기.cpp) |
+|  | <a href="https://www.acmicpc.net/problem/14502">p.341 연구</a> | [C++](이코테/DFS&BFS/연구소.cpp) |
