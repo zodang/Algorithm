@@ -2,110 +2,115 @@
 using namespace std;
 
 int N, M;
-int graph[8][8];
-int tempGraph[8][8];
+vector<vector<int>> graph;
 
-int dx[4] = {-1, 0, 1, 0};
-int dy[4] = {0, -1, 0, 1};
+vector<pair<pair<int, int>, int>> info;
+vector<pair<int, int>> virus_pos;
 
-int maxCount;
+int dy[4] = {0, 1, 0, -1};
+int dx[4] = {1, 0, -1, 0};
 
-void virus(int x, int y)
+vector<vector<int>> move_virus(const vector<vector<int>>& g)
 {
-    for (int i = 0; i < 4; i++)
+    vector<vector<int>> virus_graph = g;
+    queue<pair<int, int>> q;
+    
+    for (int i = 0; i < virus_pos.size(); i++)
     {
-        int nx = x + dx[i];
-        int ny = y + dy[i];
-        
-        if (nx < 0 || nx >= N || ny < 0 || ny >= M) continue;
-        if (tempGraph[nx][ny] == 1 || tempGraph[nx][ny] == 2) continue;
-        
-        if (tempGraph[nx][ny] == 0) 
-        {
-            tempGraph[nx][ny] = 2;
-            virus(nx, ny);
-        }
+        q.push({virus_pos[i].first, virus_pos[i].second});
     }
     
-}
-
-int getCurrentCount()
-{
-    int count = 0;
-    for (int i = 0; i < N; i++)
+    while (!q.empty())
     {
-        for (int j = 0; j < M; j++)
+        for (int d = 0; d < 4; d++)
         {
-            if (tempGraph[i][j] == 0) count++;
-        }
-    }
-    
-    return count;    
-}
-
-void dfs(int count)
-{
-    if (count == 3)
-    {
-        // 임시 벽 그래프 초기화
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-            {
-                tempGraph[i][j] = graph[i][j];
-            }
+            int nx = q.front().first + dx[d];
+            int ny = q.front().second + dy[d];
+            
+            if (nx < 0 || nx >= N || ny < 0 || ny >= M) continue;
+            if (virus_graph[nx][ny] != 0 ) continue;
+            
+            virus_graph[nx][ny] = 2;
+            q.push({nx, ny});
         }
         
-        // 임시 벽 그래프에서 바이러스 이동
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < M; j++)
-            {
-                if (tempGraph[i][j] == 2)
-                {
-                    virus(i, j);
-                }
-            }
-        }
-        
-        // 빈 칸 최대 개수 갱신
-        maxCount = max(maxCount, getCurrentCount());
-        return;
+        q.pop();
     }
     
-    // 추가 벽 3개 될 때까지 추가
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < M; j++)
-        {
-            if (graph[i][j] == 0)
-            {
-                graph[i][j] = 1;
-                count++;
-                dfs(count);
-                
-                graph[i][j] = 0;
-                count--;
-            }
-        }
-    }
+    return virus_graph;
 }
+
 
 int main() {
-	cin >> N >> M;
-	
-	// 원본 그래프 초기화
-	for (int i = 0; i < N; i++)
-	{
-	    for (int j = 0; j < M; j++)
-	    {
-	        int x;
-	        cin >> x;
-	        graph[i][j] = x;
-	    }
-	}
-	
-	dfs(0);
+    int answer = 0;
 
-    cout << maxCount;
+    cin >> N >> M;
+    
+    graph.resize(N);
+    
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            int x;
+            cin >> x;
+            graph[i].push_back(x);
+            
+            info.push_back({{i, j}, x});
+            if (x == 2) virus_pos.push_back({i, j});
+        }
+    }
+    
+    // 1. 새 벽 3개 위치 선택
+    vector<int> subArr(N*M, 1);
+    for (int i = 0; i < 3; i++) subArr[i] = 0;
+    
+    do 
+    {
+        vector<int> wallArr;
+        vector<vector<int>> newGraph = graph;
+        bool is_all_zero = true;
+        
+        for (int i = 0; i < N*M; i++)
+        {
+            if (subArr[i] == 0) wallArr.push_back(i);
+        }
+        
+        // 2. 벽 세우기
+        for (int i = 0; i < wallArr.size(); i++)
+        {
+            int idx = wallArr[i];
+            
+            int xPos = info[idx].first.first;
+            int yPos = info[idx].first.second;
+            
+            if (graph[xPos][yPos] != 0)
+            {
+                is_all_zero = false;
+                break;
+            }
+            
+            newGraph[xPos][yPos] = 1;
+        }
+        
+        if (!is_all_zero) continue;
+        
+        // 3. 바이러스 이동
+        newGraph = move_virus(newGraph);
+        
+        // 4. 빈 칸 개수 갱신
+        int count = 0;
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                if (newGraph[i][j] == 0) count++;
+            }
+        }
+
+        answer = max(answer, count);
+    }
+    while (next_permutation(subArr.begin(), subArr.end()));
+    
+    cout << answer;
 }
