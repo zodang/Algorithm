@@ -1,95 +1,90 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, K;
-int S, X, Y;
-
-int graph[201][201];
-
-int dx[4] = {-1, 0, 1, 0};
-int dy[4] = {0, -1, 0, 1};
-
-// 바이러스 구조체 정의
 struct Virus
 {
-    int type;
-    int time;
-    int x;
-    int y;
+    int v_type;
+    int x_pos;
+    int y_pos;
 };
 
-// 바이러스 낮은 타입부터 오름차순 정렬
-bool compareType(const Virus& a, const Virus& b)
+bool compare(const Virus& a, const Virus& b)
 {
-    return a.type < b.type;
+    return a.v_type < b.v_type;
 }
 
-int main(void)
+int N, K;
+int S, X, Y;
+int graph[201][201];
+
+int dx[4] = {1, 0, -1, 0};
+int dy[4] = {0, 1, 0, -1};
+
+vector<Virus> virusArr;
+queue<Virus> q;
+
+void spread_virus()
 {
-    cin >> N >> K;
+    int v_size = q.size();
     
-    vector<Virus> virusArr;
+    for (int i = 0; i < v_size; i++)
+    {
+        Virus current_v = q.front();
+        
+        int ct = current_v.v_type;
+        int cx = current_v.x_pos;
+        int cy = current_v.y_pos;
+        
+        for (int d = 0; d < 4; d++)
+        {
+            int nx = cx + dx[d];
+            int ny = cy + dy[d];
+            
+            if (nx <= 0 || nx > N || ny <= 0 || ny > N) continue;
+            if (graph[nx][ny] != 0) continue;
+            
+            graph[nx][ny] = ct;
+            q.push({ct, nx, ny});
+        }
+        
+        q.pop();
+    }
+}
+
+int main() {
+	
+	// 1. 데이터 초기화
+	cin >> N >> K;
     
     for (int i = 1; i <= N; i++)
     {
-        for (int j = 1; j <= N; j++)
+        for (int j = 1; j<= N; j++)
         {
-            cin >> graph[i][j];
+            int t;
+            cin >> t;
+            graph[i][j] = t;
             
-            // 바이러스 시작점 추가
-            if (graph[i][j] != 0)
-            {
-                Virus v;
-                v.type = graph[i][j];
-                v.time = 0;
-                v.x = i;
-                v.y = j;
-                
-                virusArr.push_back(v);
-            }
+            if (t != 0) virusArr.push_back({t, i, j});
         }
     }
     
     cin >> S >> X >> Y;
     
-    // 바이러스 타입별 오름차순 정렬
-    sort(virusArr.begin(), virusArr.end(), compareType);
+    // 2. 바이러스 타입에 따라 오름차순 정렬
+    sort(virusArr.begin(), virusArr.end(), compare);
     
-    // 다중 시작점 BFS
-    queue<Virus> q;
+    // 3. queue에 바이러스 추가
     for (int i = 0; i < virusArr.size(); i++)
     {
         q.push(virusArr[i]);
     }
     
-    while (!q.empty())
+    // 4. S초동안 전염
+    int s = 0;
+    while (s < S)
     {
-        Virus currentV = q.front();
-        q.pop();
-        
-        // S초 도달 시 확산 종료
-        if (currentV.time == S) continue;
-        
-        for (int i = 0; i < 4; i++)
-        {
-            int nx = currentV.x + dx[i];
-            int ny = currentV.y + dy[i];
-            
-            if (nx <= 0 || nx > N || ny <= 0 || ny > N) continue;
-            if (graph[nx][ny] != 0) continue;
-            
-            // 번식 이동
-            graph[nx][ny] = currentV.type;
-            
-            // 새 바이러스 추가
-            Virus v;
-            v.type = currentV.type;
-            v.time = currentV.time + 1;
-            v.x = nx;
-            v.y = ny;
-            
-            q.push(v);
-        }
+        s += 1;
+        spread_virus();
     }
     
     cout << graph[X][Y];
