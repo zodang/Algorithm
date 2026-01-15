@@ -54,4 +54,6 @@ BFS는 **시작점에서 가까운 노드부터 단계별로 넓게 탐색하는
 |  | <a href="https://www.acmicpc.net/problem/14502">p.341 연구소</a> | [C++](이코테/DFS&BFS/연구소.cpp) |
 |  | <a href="https://www.acmicpc.net/problem/18405">p.344 경쟁적전염</a> | [C++](이코테/DFS&BFS/경쟁적전염.cpp) |
 |  | <a href="https://school.programmers.co.kr/learn/courses/30/lessons/60058">p.346 괄호변환</a> | [C++](이코테/DFS&BFS/괄호변환.cpp) |
+|  | <a href="https://www.acmicpc.net/problem/14888">p.349 연산자끼워넣기</a> | [C++](이코테/DFS&BFS/연산자끼워넣기.cpp) |
+| 백준 | <a href="https://www.acmicpc.net/problem/2606">2606 - 바이러스</a> | [C++](백준/DFS&BFS/2606-바이러스.cpp) |
 
