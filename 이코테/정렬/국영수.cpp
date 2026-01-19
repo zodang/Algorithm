@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Info
+struct Score
 {
     string name;
     int korean;
@@ -9,10 +9,7 @@ struct Info
     int math;
 };
 
-int N;
-vector<Info> infoArr;
-
-bool compareInfo(const Info& a, const Info& b)
+bool compare(const Score& a, const Score& b)
 {
     if (a.korean == b.korean && a.english == b.english && a.math == b.math) return a.name < b.name;
     if (a.korean == b.korean && a.english == b.english) return a.math > b.math;
@@ -20,21 +17,25 @@ bool compareInfo(const Info& a, const Info& b)
     return a.korean > b.korean;
 }
 
-int main() {
+int N;
+vector<Score> scoreArr;
 
+int main(void)
+{
     cin >> N;
     
     for (int i = 0; i < N; i++)
     {
-        Info newInfo;
-        cin >> newInfo.name >> newInfo.korean >> newInfo.english >> newInfo.math;
-        infoArr.push_back(newInfo);
+        Score score;
+        cin >> score.name >> score.korean >> score.english >> score.math;
+        
+        scoreArr.push_back(score);
     }
     
-    sort(infoArr.begin(), infoArr.end(), compareInfo);
+    sort(scoreArr.begin(), scoreArr.end(), compare);
     
-    for (int i = 0; i < infoArr.size(); i++)
+    for (int i = 0; i < N; i++)
     {
-        cout << infoArr[i].name << '\n';
+        cout << scoreArr[i].name << '\n';
     }
 }
