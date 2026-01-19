@@ -57,3 +57,14 @@ BFS는 **시작점에서 가까운 노드부터 단계별로 넓게 탐색하는
 |  | <a href="https://www.acmicpc.net/problem/14888">p.349 연산자끼워넣기</a> | [C++](이코테/DFS&BFS/연산자끼워넣기.cpp) |
 | 백준 | <a href="https://www.acmicpc.net/problem/2606">2606 - 바이러스</a> | [C++](백준/DFS&BFS/2606-바이러스.cpp) |
 
+<br/>
+
+## 정렬 알고리즘
+<a href="https://zodang.tistory.com/23">정렬 알고리즘</a>이란 **데이터를 특정 기준에 따라 효율적으로 순서대로 나열하는 방법**을 의미한다. 대표적인 종류로는 버블 정렬, 선택 정렬, 삽입 정렬, 병합 정렬, 퀵 정렬 등이 있으며, 데이터의 양과 특성에 따라 적합한 알고리즘을 선택하는 것이 중요하다.
+
+<br/>
+
+| 출처 | 문제 | 소스코드 |
+| --- | --- | --- |
+| 이코테 | <a href="https://www.acmicpc.net/problem/10825">p.359 국영수</a> | [C++](이코테/정렬/국영수.cpp) |
+|  | <a href="https://www.acmicpc.net/problem/18310">p.360 안테나</a> | [C++](이코테/정렬/안테나.cpp) |
