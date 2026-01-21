@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int N;
+vector<int> positives;
+vector<int> negatives;
+int zero_cnt = 0;
+
+int main() 
+{
+    cin >> N;
+    
+    for (int i = 0; i < N; i++)
+    {
+        int x;
+        cin >> x;
+        
+        if (x > 0) positives.push_back(x);
+        else if (x < 0) negatives.push_back(x);
+        else zero_cnt += 1;
+    }
+    
+    int answer = 0;
+    
+    // 1-1. 양수 내림차순 정렬
+    sort(positives.begin(), positives.end(), greater<int>());
+    
+    // 1-2. 두 수의 곱이 1보다 크다면 곱하기
+    for (int i = 0 ; i < positives.size(); i+=2)
+    {
+        // 1-3. 남는 양수 더하기
+        if (i + 1 >= positives.size())
+        {
+            answer += positives[i];
+            break;
+        }
+        
+        // 1-4. 두 양수가 1보다 큰 경우 묶기
+        if (positives[i] > 1 && positives[i+1] > 1) answer +=  positives[i] * positives[i+1];
+        else answer += (positives[i] + positives[i+1]);
+    }
+    
+    // 2-1. 음수 오름차순 정렬
+    sort(negatives.begin(), negatives.end());
+    
+    for (int i = 0; i < negatives.size(); i+=2)
+    {
+        if (i+1 >= negatives.size())
+        {
+            // 2-2. 남는 음수 묶을 0 없다면 더하기
+            if (zero_cnt == 0) answer += negatives[i]; 
+            break;
+        }
+        
+        // 2-3. 두 음수 묶기
+        int multiply = negatives[i] * negatives[i+1];
+        answer += multiply;
+    }
+
+    cout << answer;
+}
