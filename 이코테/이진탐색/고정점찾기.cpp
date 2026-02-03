@@ -4,20 +4,23 @@ using namespace std;
 int N;
 vector<int> arr;
 
-int binarySearch(int startIdx, int endIdx)
+int binary_search(int leftIdx, int rightIdx)
 {
-    while (startIdx <= endIdx)
+    while (leftIdx <= rightIdx)
     {
-        int midIdx = (startIdx + endIdx) / 2;
+        int midIdx = (leftIdx + rightIdx) / 2;
+        
         if (midIdx == arr[midIdx]) return midIdx;
-        else if (midIdx > arr[midIdx]) startIdx = midIdx + 1;
-        else if (midIdx < arr[midIdx]) endIdx = midIdx - 1;
+        
+        if (midIdx > arr[midIdx]) leftIdx = midIdx + 1;
+        else rightIdx = midIdx - 1;
     }
     
     return -1;
 }
 
-int main(void)
+
+int main()
 {
     cin >> N;
     
@@ -28,5 +31,5 @@ int main(void)
         arr.push_back(x);
     }
     
-    cout << binarySearch(0, N-1);
+    cout << binary_search(0, N-1);
 }
