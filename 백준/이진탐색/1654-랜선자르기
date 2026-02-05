@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int K, N;
+vector<int> arr;
+
+long long count_line(const vector<int>& arr, long long pivot)
+{
+    long long count = 0; 
+    
+    for (int i = 0; i < arr.size(); i++)
+    {
+        count += arr[i] / pivot;
+    }
+    
+    return count;
+}
+
+long long binary_search(long long min_length, long long max_length)
+{
+    if (min_length > max_length) return max_length; 
+    
+    long long mid_length = (min_length + max_length) / 2;
+    
+    if (count_line(arr, mid_length) < N) return binary_search(min_length, mid_length-1);
+    else return binary_search(mid_length+1, max_length);
+}
+
+int main() {
+	
+	cin >> K >> N;
+	
+	int max_pivot = 0;
+	
+	for (int i = 0; i < K; i++)
+	{
+	    int x;
+	    cin >> x;
+	    arr.push_back(x);
+	    
+	    max_pivot = max(max_pivot, x);
+	}
+	
+	cout << binary_search(1, max_pivot);
+}
