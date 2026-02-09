@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(void)
-{
-    int n = 0;
+int n;
+int arr[501][501];
+int dp[501][501];
+
+int main() {
     cin >> n;
-    
-    vector<vector<int>> arr(n, vector<int>(n, 0));
-    vector<vector<int>> dp(n, vector<int>(n, 0));
     
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < i + 1; j++)
+        for (int j = 0; j <= i; j++)
         {
-            int x;
+            int x = 0;
             cin >> x;
             arr[i][j] = x;
+            dp[i][j] = 0;
         }
     }
     
@@ -23,27 +23,20 @@ int main(void)
     
     for (int i = 1; i < n; i++)
     {
-        for (int j = 0; j < i + 1; j++)
+        for (int j = 0; j <= i; j++)
         {
-            int max_prev = 0;
-            
-            // 왼쪽 위의 값을 더하는 경우
-            if (j-1 >= 0) max_prev = max(max_prev, dp[i-1][j-1]);
-            
-            // 바로 위의 값을 더하는 경우
-            max_prev = max(max_prev, dp[i-1][j]);
-            
-            dp[i][j] = max_prev + arr[i][j];
+            // 점화식: 왼쪽 위, 위 방향 요소 중 최대값 비교
+            if (j-1 < 0) dp[i][j] = dp[i-1][j] + arr[i][j];
+            else if (j == i) dp[i][j] = dp[i-1][j-1] + arr[i][j];
+            else dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + arr[i][j];
         }
     }
     
     int max_sum = 0;
-    
     for (int i = 0; i < n; i++)
     {
         max_sum = max(max_sum, dp[n-1][i]);
     }
     
     cout << max_sum;
-    
 }
