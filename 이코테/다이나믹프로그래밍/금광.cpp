@@ -2,55 +2,71 @@
 using namespace std;
 
 int T;
+int d[20][20];
 
-int main(void)
+int get_gold(int n, int m, const vector<vector<int>>& arr)
 {
-    cin >> T;
-    
-    for (int i = 0; i < T; i++)
+    // 1. dp 테이블 초기화
+    for (int i = 0; i < 20; i++)
     {
-        int n = 0;
-        int m = 0;
-        cin >> n >> m;
-        
-        // 금광 정보 입력
-        vector<vector<int>> arr(n + 1, vector<int>(m + 1, 0));
-        
-        for (int i = 1; i <= n; i++)
+        for (int j = 0; j < 20; j++)
         {
-            for (int j = 1; j <= m; j++)
-            {
-                int x;
-                cin >> x;
-                arr[i][j] = x;
-            }
+            d[i][j] = 0;
         }
-        
-        // dp 테이블 갱신
-        vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-    
-        for (int j = 1; j <= m; j++)
-        {
-            for (int i = 1; i <= n; i++)
-            {
-                int prev = 0;
-                
-                if (i-1 >= 1) prev = max(dp[i-1][j-1], prev);
-                if (i+1 <= n) prev = max(dp[i+1][j-1], prev);
-                prev = max(dp[i][j-1], prev);
-                
-                dp[i][j] = arr[i][j] + prev;
-            }
-        }
-        
-        // m번째 칸에서의 최대값 계산
-        int max_gold = 0;
-        
-        for (int i = 1; i <= n; i++)
-        {
-            max_gold = max(dp[i][m], max_gold);
-        }
-        
-        cout << max_gold << '\n';
     }
+    
+    for (int i = 0; i < n; i++)
+    {
+        d[i][0] = arr[i][0];
+    }
+    
+    // 2. dp 진행
+    for (int j = 1; j < m; j++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            int prev = 0;
+            
+            if (i-1 >= 0) prev = max(prev, d[i-1][j-1]); 
+            if (i+1 < n) prev = max(prev, d[i+1][j-1]);
+            prev = max(prev, d[i][j-1]);
+            
+            d[i][j] = prev + arr[i][j];
+        }
+    }
+    
+    // 3. 끝 열의 최대값 반환
+    int max_gold = 0;
+    
+    for (int i = 0; i < n; i++)
+    {
+        max_gold = max(max_gold, d[i][m-1]);    
+    }
+    
+    return max_gold;
+}
+
+int main() {
+	cin >> T;
+	
+	for (int t = 0; t < T; t++)
+	{
+	    int x = 0;
+	    int  y = 0;
+	    cin >> x >> y;
+	    
+	    vector<vector<int>> arr(x, vector<int>(y, 0));
+	    
+	    for (int i = 0; i < x; i++)
+	    {
+	        for (int j = 0; j < y; j++)
+	        {
+	            int g = 0;
+	            cin >> g;
+	            arr[i][j] = g;;
+	        }
+	    }
+	    
+	    cout << get_gold(x, y, arr) << '\n';
+	}
 }
