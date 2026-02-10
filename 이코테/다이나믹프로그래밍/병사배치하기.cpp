@@ -2,34 +2,37 @@
 using namespace std;
 
 int N;
-vector<int> arr;
+int d[2001];
+vector<int> cp;
 
 int main() {
+	
 	cin >> N;
 	
 	for (int i = 0; i < N; i++)
 	{
-	    int atk;
-	    cin >> atk;
-	    arr.push_back(atk);
+	    int x;
+	    cin >> x;
+	    cp.push_back(x);
 	}
 	
-	vector<int> dpArr(N, 1);
-	
-	// 감소하는 부분의 최대 길이 갱신
-	for (int i = 0 ; i < N; i++)
+	for (int i = 0; i < N; i++)
 	{
+	    d[i] = 1;
+	    
 	    for (int j = 0; j < i; j++)
 	    {
-	        if (arr[j] > arr[i]) dpArr[i] = max(dpArr[i], dpArr[j] + 1);
+	        if (cp[j] > cp[i])
+	        {
+	            d[i] = max(d[i], d[j] + 1);
+	        }
 	    }
 	}
 	
 	int max_count = 0;
-	
 	for (int i = 0; i < N; i++)
 	{
-	    max_count = max(max_count, dpArr[i]);
+	    max_count = max(max_count, d[i]);
 	}
 	
 	cout << N - max_count;
