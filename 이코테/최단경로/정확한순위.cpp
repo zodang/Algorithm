@@ -5,28 +5,28 @@ const int INF = 1e9;
 int N, M;
 int graph[501][501];
 
-int main() 
-{
+
+int main() {
     cin >> N >> M;
-    
-    for (int i = 1; i <= N; i++)
-    {
-        fill_n(graph[i], N + 1, INF);
-    }
-    
-    for (int i = 1; i <= M; i++)
-    {
-        int x, y;
-        cin >> x >> y;
-        graph[x][y] = 1;
-    }
     
     for (int i = 1; i <= N; i++)
     {
         for (int j = 1; j <= N; j++)
         {
-            if (i == j) graph[i][j] = 0;
+            graph[i][j] = INF;
         }
+    }
+    
+    for (int i = 1; i <= N; i++)
+    {
+        graph[i][i] = 0;
+    }
+    
+    for (int i = 0; i < M; i++)
+    {
+        int a, b;
+        cin >> a >> b;
+        graph[a][b] = 1;
     }
     
     for (int k = 1; k <= N; k++)
@@ -39,20 +39,23 @@ int main()
             }
         }
     }
-
-    int count = 0;
     
-    for (int i = 1; i <= N; i++)
+    vector<int> arr(N+1, 0);
+    
+    for (int n = 1; n <= N; n++)
     {
-        int comparableCount = 0;
-        
-        for (int j = 1; j <= N; j++)
+        for (int i = 1; i <= N; i++)
         {
-            if (graph[i][j] != INF || graph[j][i] != INF) comparableCount++;
+            if (i == n) continue;
+            if (graph[n][i] < INF || graph[i][n] < INF) arr[n] += 1;
         }
-        
-        if (comparableCount == N) count++;
     }
+	
+	int result = 0;
+	for (int i = 1; i <= N; i++)
+	{
+	    if (arr[i] >= N-1) result++;
+	}
     
-    cout << count;
+    cout << result;
 }
