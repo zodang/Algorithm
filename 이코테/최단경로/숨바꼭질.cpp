@@ -3,64 +3,74 @@ using namespace std;
 
 const int INF = 1e9;
 int N, M;
-vector<vector<int>> graph;
-int d[20001];
+
+int dp[20001];
 
 int main(void)
 {
     cin >> N >> M;
-    graph.resize(N + 1);
-    fill_n(d, N + 1, INF);
     
+    vector<vector<int>> arr(N+1);
     for (int i = 0; i < M; i++)
     {
         int a, b;
         cin >> a >> b;
         
-        graph[a].push_back(b);
-        graph[b].push_back(a);
+        arr[a].push_back(b);
+        arr[b].push_back(a);
+    }
+    
+    for (int i = 1; i <= N; i++)
+    {
+        dp[i] = INF;
     }
     
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     
     pq.push({0, 1});
-    d[1] = 0;
+    dp[1] = 0;
     
     while (!pq.empty())
     {
-        int currentCost = pq.top().first;
-        int currentIdx = pq.top().second;
-        
+        pair<int, int> top_node = pq.top();
         pq.pop();
         
-        if (d[currentIdx] < currentCost) continue;
+        int cost = top_node.first;
+        int current_idx = top_node.second;
         
-        for (int i = 0; i < graph[currentIdx].size(); i++)
+        if (dp[current_idx] < cost) continue;
+        
+        for (int i = 0; i < arr[current_idx].size(); i++)
         {
-            int newCost = currentCost + 1;
+            int linked_idx = arr[current_idx][i];
             
-            if (newCost < d[graph[currentIdx][i]])
+            if (dp[current_idx] + 1 < dp[linked_idx])
             {
-                d[graph[currentIdx][i]] = newCost;
-                pq.push({newCost, graph[currentIdx][i]});
+                dp[linked_idx] = dp[current_idx] + 1;
+                pq.push({dp[linked_idx], linked_idx});
             }
         }
     }
     
-    int maxIdx = 0;
-    int maxD = 0;
-    int count = 0;
+    int num = 1;
+    int distance = dp[1];
+    int count = 1;
     
     for (int i = 1; i <= N; i++)
     {
-        if (d[i] > maxD)
+        if (dp[i] > distance)
         {
-            maxIdx = i;
-            maxD = d[i];
+            num = i;
+            distance = dp[i];
             count = 1;
+            continue;
         }
-        else if (d[i] == maxD) count++;
+        
+        if (dp[i] == distance)
+        {
+            count += 1;
+        }
     }
     
-    cout << maxIdx << ' ' << maxD << ' ' << count;
+    cout << num << ' ' << distance << ' ' << count;
 }
