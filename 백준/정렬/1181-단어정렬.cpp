@@ -4,31 +4,28 @@ using namespace std;
 int N;
 vector<string> arr;
 
-bool compare(const string& a, const string& b)
+bool SortWord(const string& w1, const string& w2)
 {
-    if (a.size() == b.size()) return a < b;
-    return a.size() < b.size();
+    if (w1.size() == w2.size()) return w1 < w2;
+    return w1.size() < w2.size();
 }
 
-int main(void)
-{
-    cin >> N;
-    for (int i = 0; i < N; i++)
-    {
-        string s;
-        cin >> s;
-        arr.push_back(s);
-    }
-    
-    sort(arr.begin(), arr.end(), compare);
-    
-    int idx = 1;
-    while (idx < arr.size())
-    {
-        if (arr[idx] != arr[idx-1]) idx++;
-        else arr.erase(arr.begin() + idx);
-        
-    }
-    
-    for (int i = 0; i < arr.size(); i++) cout << arr[i] << '\n';
+int main() {
+	
+	cin >> N;
+	
+	for (int i = 0; i < N; i++)
+	{
+	    string word;
+	    cin >> word;
+	    arr.push_back(word);
+	}
+	
+	sort(arr.begin(), arr.end(), SortWord);
+	arr.erase(unique(arr.begin(), arr.end()), arr.end());
+	
+	for (int i = 0; i < arr.size(); i++)
+	{
+	    cout << arr[i] << '\n';
+	}
 }
