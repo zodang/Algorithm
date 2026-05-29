@@ -5,33 +5,35 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> answer;
     
     // 작업 완료까지 걸리는 날짜
-    vector<int> rest_days;
+    queue<int> rest_days;
     int total_count = progresses.size();
     
     for (int i = 0; i < total_count; i++)
     {
         int x = (100 - progresses[i]) / speeds[i];
         if ((100 - progresses[i]) % speeds[i] > 0) x += 1;
-        rest_days.push_back(x);
+        rest_days.push(x);
     }
     
-    int big = rest_days[0]; 
+    int release_day = rest_days.front(); 
     int feature = 0;
-    
-    for (int i = 1; i < rest_days.size(); i++)
-    {
-        feature++;
-        
-        // 큰 날짜 도달 시 배포
-        if (rest_days[i] > big)
-        {
-            answer.push_back(feature);
-            big = rest_days[i];
-            feature = 0;
-            continue;
-        }
-    }
 
-    answer.push_back(feature + 1);
+    // 배포일까지 가능한 기능 개수 카운트
+    while (!rest_days.empty())
+    {
+        int current_day = rest_days.front();
+        rest_days.pop();
+        
+        if (current_day > release_day)
+        {
+            release_day = current_day;
+            answer.push_back(feature);
+            feature = 0;
+        }
+        
+        feature += 1;
+    }
+    
+    answer.push_back(feature);
     return answer;
 }
